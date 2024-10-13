@@ -29,8 +29,6 @@ public class RoutineMapper implements Mapper<Routine, RoutineResponseDto, Routin
     public Routine dtoToEntity(RoutineRequestDto dtoRequest) {
         Routine routine = new Routine();
 
-        routine.setClient(dtoRequest.getClient());
-        routine.setTrainer(dtoRequest.getTrainer());
         routine.setRoutineCode(dtoRequest.getRoutineCode());
         routine.setRoutineType(dtoRequest.getRoutineType());
         routine.setCreationDate(dtoRequest.getCreationDate());
