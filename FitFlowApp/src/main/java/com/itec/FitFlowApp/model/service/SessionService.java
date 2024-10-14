@@ -88,7 +88,7 @@ public class SessionService implements CRUD<SessionResponseDto, SessionRequestDt
 
     @Override
     public void delete(String id) {
-        Session session = getSessionByCodeOrThrow(Long.parseLong(id));
+        Session session = getSessionByCodeOrThrow(Long.valueOf(id));
         sessionRepository.delete(session);
     }
 
