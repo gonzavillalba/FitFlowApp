@@ -170,13 +170,13 @@ public class RoutineService implements CRUD<RoutineResponseDto, RoutineRequestDt
     }
 
     @Transactional
-    public RoutineResponseDto removeSessionFromRoutine(Long routineId, String sessionId) {
+    public RoutineResponseDto removeSessionFromRoutine(Long routineId, Object sessionId) {
         // Buscar la rutina por su ID
         Routine routine = getRoutineByCodeOrThrow(routineId);
 
         // Verificar si la sesión está en la lista
         Session sessionToRemove = routine.getSessions().stream()
-                .filter(session -> session.getId().equals(Long.parseLong(sessionId)))
+                .filter(session -> session.getId().equals(sessionId))
                 .findFirst()
                 .orElseThrow(() -> new EntityException("La sesión con el ID " + sessionId + " no se encuentra en la rutina con ID " + routineId));
 
